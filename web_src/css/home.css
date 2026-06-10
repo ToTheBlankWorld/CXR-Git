@@ -104,3 +104,16 @@ Then the inner one needs to get padding and parent "item" padding needs to be re
     gap: 0.5em;
   }
 }
+
+.full.height:has(.home) {
+  display: flex;
+  flex-direction: column;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
