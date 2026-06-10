@@ -227,7 +227,7 @@
   "error.not_found": "The target couldn't be found.",
   "error.permission_denied": "Permission denied.",
   "error.network_error": "Network error",
-  "startpage.app_desc": "A painless, self-hosted Git service",
+  "startpage.app_desc": "CXR Git is a local Git hosting solution written in Go.",
   "startpage.install": "Easy to install",
   "startpage.install_desc": "Simply <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"%[1]s\">run the binary</a> for your platform, ship it with <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"%[2]s\">Docker</a>, or get it <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"%[3]s\">packaged</a>.",
   "startpage.platform": "Cross-platform",
