@@ -1,12 +1,29 @@
 {{template "base/head" .}}
 <div role="main" aria-label="{{if .IsSigned}}{{ctx.Locale.Tr "dashboard"}}{{else}}{{ctx.Locale.Tr "home_title"}}{{end}}" class="page-content home">
-	<div class="tw-mb-8 tw-px-8">
-		<div class="center">
-			<img class="logo" width="220" height="220" src="{{AssetUrlPrefix}}/img/logo.svg" alt="{{ctx.Locale.Tr "logo"}}">
-			<div class="hero">
-				<h1 class="ui icon header title tw-text-balance">
-					{{AppName}}
-				</h1>
+	<!-- Dynamic mesh gradient glow backdrops -->
+	<div class="mesh-glow mesh-glow-1"></div>
+	<div class="mesh-glow mesh-glow-2"></div>
+	
+	<div class="home-hero-container">
+		<div class="brand-showcase">
+			<div class="logo-wrapper">
+				<div class="logo-pulse-ring"></div>
+				<img class="logo-premium" width="220" height="220" src="{{AssetUrlPrefix}}/img/logo.svg" alt="{{ctx.Locale.Tr "logo"}}">
+			</div>
+			<div class="title-wrapper">
+				<h1 class="premium-title">{{AppName}}</h1>
+				<p class="premium-subtitle">A next-generation self-hosted collaboration platform</p>
+			</div>
+			
+			<div class="premium-ctas">
+				<a href="{{AppSubUrl}}/explore/repos" class="ui button premium-btn-primary">
+					{{svg "octicon-search"}} Explore Projects
+				</a>
+				{{if not .IsSigned}}
+					<a href="{{AppSubUrl}}/user/login" class="ui button premium-btn-secondary">
+						{{svg "octicon-sign-in"}} Sign In
+					</a>
+				{{end}}
 			</div>
 		</div>
 	</div>

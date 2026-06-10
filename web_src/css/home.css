@@ -116,4 +116,204 @@ Then the inner one needs to get padding and parent "item" padding needs to be re
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Dynamic mesh gradient glows */
+.mesh-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mesh-glow-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #00f0ff 0%, rgba(0, 0, 0, 0) 70%);
+  top: -10%;
+  left: 10%;
+  animation: float-mesh-1 25s ease-in-out infinite;
+}
+
+.mesh-glow-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #7000ff 0%, rgba(0, 0, 0, 0) 70%);
+  bottom: -15%;
+  right: 10%;
+  animation: float-mesh-2 30s ease-in-out infinite;
+}
+
+@keyframes float-mesh-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 30px) scale(1.1); }
+}
+
+@keyframes float-mesh-2 {
+  0%, 100% { transform: translate(0, 0) scale(1.1); }
+  50% { transform: translate(-40px, -50px) scale(0.95); }
+}
+
+/* Premium Layout */
+.home-hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 3rem 1.5rem;
+  z-index: 2;
+}
+
+.brand-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+/* Logo Animation & Glow */
+.logo-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.logo-pulse-ring {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  animation: pulse-ring 8s ease-in-out infinite;
+}
+
+.logo-premium {
+  z-index: 1;
+  filter: drop-shadow(0 8px 30px rgba(0, 240, 255, 0.2));
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.5s ease;
+  animation: float-logo 6s ease-in-out infinite;
+}
+
+.logo-premium:hover {
+  transform: scale(1.05) rotate(1.5deg);
+  filter: drop-shadow(0 12px 40px rgba(0, 240, 255, 0.45));
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(0.95); opacity: 0.2; }
+  50% { transform: scale(1.1); opacity: 0.45; }
+}
+
+@keyframes float-logo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Premium Typography */
+.title-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.premium-title {
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #00f0ff 0%, #0072ff 50%, #7000ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+
+@media (max-width: 767.98px) {
+  .premium-title {
+    font-size: 3.5rem;
+  }
+  .premium-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .premium-title {
+    font-size: 5.5rem;
+  }
+  .premium-subtitle {
+    font-size: 1.35rem;
+  }
+}
+
+.premium-subtitle {
+  color: var(--color-text-light-1);
+  font-weight: var(--font-weight-normal);
+  margin-top: 1rem;
+  letter-spacing: 0.01em;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.85;
+}
+
+/* Call to action buttons */
+.premium-ctas {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.premium-btn-primary {
+  background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%) !important;
+  color: var(--color-white) !important;
+  border: none !important;
+  padding: 14px 28px !important;
+  font-size: 1.05rem !important;
+  font-weight: var(--font-weight-semibold) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.35) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.premium-btn-primary:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 8px 25px rgba(0, 114, 255, 0.5) !important;
+}
+
+.premium-btn-secondary {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: var(--color-text) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  padding: 14px 28px !important;
+  font-size: 1.05rem !important;
+  font-weight: var(--font-weight-semibold) !important;
+  border-radius: 50px !important;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.premium-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-2px) scale(1.02) !important;
 }
